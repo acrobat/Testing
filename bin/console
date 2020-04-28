@@ -9,9 +9,13 @@ use Symfony\Component\Console\Input\ArgvInput;
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), 'phpcr');
 
-// must be placed after setting $env, because it's used in bootstrapping the 
+// must be placed after setting $env, because it's used in bootstrapping the
 // kernel
 $kernel = include __DIR__.'/../bootstrap/kernel_bootstrap.php';
+
+var_dump($kernel->getKernelDir());
+var_dump($kernel->getProjectDir());
+die;
 
 $application = new Application($kernel);
 $application->run($input);
