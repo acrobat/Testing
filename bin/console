@@ -13,9 +13,5 @@ $env = $input->getParameterOption(array('--env', '-e'), 'phpcr');
 // kernel
 $kernel = include __DIR__.'/../bootstrap/kernel_bootstrap.php';
 
-var_dump($kernel->getKernelDir());
-var_dump($kernel->getProjectDir());
-die;
-
 $application = new Application($kernel);
 $application->run($input);
